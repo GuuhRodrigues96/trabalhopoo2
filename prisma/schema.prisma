@@ -1,0 +1,46 @@
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Category {
+  id       Int      @id @default(autoincrement())
+  name     String   @unique
+  products Product[]
+}
+
+model AppUser {
+  id                 Int      @id @default(autoincrement())
+  username           String
+  email              String   @unique
+  password           String
+  lastPasswordChange DateTime?
+  insDate            DateTime @default(now())
+  updDate            DateTime @updatedAt
+  insUser            Int?
+  updUser            Int?
+  type               String
+  passwordValidity   Int?
+  passwordExpires    DateTime?
+  isActive           Boolean   @default(true)
+  productsIns        Product[] @relation("userInserts") // Relacionamento para produtos inseridos
+  productsUpd        Product[] @relation("userUpdates") // Relacionamento para produtos atualizados
+}
+
+model Product {
+  id         Int      @id @default(autoincrement())
+  ean        String   @unique
+  name       String   @unique
+  idCategory Int
+  insDate    DateTime @default(now())
+  updDate    DateTime @updatedAt
+  insUser    Int?
+  updUser    Int?
+  category   Category @relation(fields: [idCategory], references: [id])
+  appUserIns AppUser? @relation("userInserts", fields: [insUser], references: [id])
+  appUserUpd AppUser? @relation("userUpdates", fields: [updUser], references: [id])
+}
