@@ -1,3 +1,10 @@
+/**
+ * Testes de integração para o controlador principal da aplicação (AppController).
+ * 
+ * Esta suíte de testes verifica se o controlador responde corretamente 
+ * à requisição GET na rota raiz ('/').
+ */
+
 import { Test, TestingModule } from '@nestjs/testing';
 import { INestApplication } from '@nestjs/common';
 import * as request from 'supertest';
