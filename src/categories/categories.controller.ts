@@ -1,3 +1,12 @@
+/**
+ * Controlador responsável pela gestão das categorias.
+ * 
+ * O `CategoriesController` expõe endpoints para a criação, 
+ * recuperação, atualização e remoção de categorias. Ele interage 
+ * com o `CategoriesService` para manipular os dados das categorias 
+ * no banco de dados.
+ */
+
 // categories/categories.controller.ts
 import { Controller, Get, Post, Body, Param, Put, Delete } from '@nestjs/common';
 import { CategoriesService } from './categories.service';
