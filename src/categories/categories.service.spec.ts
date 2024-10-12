@@ -1,3 +1,12 @@
+/**
+ * Testes para o `CategoriesService`.
+ * 
+ * Este conjunto de testes verifica a definição e a configuração do 
+ * `CategoriesService`. Utiliza o framework de testes do NestJS para 
+ * criar um módulo de teste e garantir que o serviço está 
+ * devidamente instanciado.
+ */
+
 import { Test, TestingModule } from '@nestjs/testing';
 import { CategoriesService } from './categories.service';
 
