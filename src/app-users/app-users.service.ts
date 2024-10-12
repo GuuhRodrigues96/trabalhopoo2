@@ -1,3 +1,11 @@
+/**
+ * Serviço responsável pela lógica de negócios relacionada aos usuários do aplicativo.
+ * 
+ * O `AppUsersService` fornece métodos para criar, buscar, atualizar e remover 
+ * usuários no banco de dados. Ele utiliza o `PrismaService` para realizar operações 
+ * de CRUD (Create, Read, Update, Delete) no modelo `AppUser`.
+ */
+
 // app-users/app-users.service.ts
 import { Injectable } from '@nestjs/common';
 import { PrismaService } from '../../prisma/prisma.service';
